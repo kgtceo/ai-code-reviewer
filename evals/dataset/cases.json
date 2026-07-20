@@ -1,0 +1,5 @@
+[
+  { "name": "sql_injection", "diff": "sql_injection.diff", "planted": { "line": 6, "category": "security" } },
+  { "name": "none_deref", "diff": "none_deref.diff", "planted": { "line": 12, "category": "bug" } },
+  { "name": "clean_refactor", "diff": "clean.diff", "planted": null }
+]

@@ -1,0 +1,7 @@
+diff --git a/db.py b/db.py
+--- a/db.py
++++ b/db.py
+@@ -5,2 +5,4 @@ def lookup(conn, name):
+     cur = conn.cursor()
++    q = "SELECT * FROM t WHERE name = '" + name + "'"
++    cur.execute(q)

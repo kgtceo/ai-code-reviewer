@@ -1,0 +1,7 @@
+diff --git a/user.py b/user.py
+--- a/user.py
++++ b/user.py
+@@ -10,2 +10,4 @@ def email_for(conn, uid):
+     row = conn.execute("select email from users where id=?", (uid,)).fetchone()
++    # return the user's email
++    return row[0]
