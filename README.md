@@ -1,5 +1,12 @@
 # ai-code-reviewer
 
+### ▶ Live demo: **[reviewer.kareemghazal.com](https://reviewer.kareemghazal.com)**
+
+Paste a diff (or a public GitHub PR ref), hit **Review**, and get findings tied to the
+exact lines the diff changed. (First run ~10–20s.)
+
+![ai-code-reviewer: bug and security findings on a diff, each pinned to a changed line](docs/images/screenshot.png)
+
 An AI code reviewer that flags **real bugs and security issues** in a diff or a public
 GitHub PR — **not** style nits. Every finding is tied to a line the diff actually
 changed, and the whole thing is measured against a **planted-bug test set**.
@@ -11,7 +18,8 @@ quiet unless it has something real, and its evals score exactly that.
 > Fourth in a portfolio built around one idea: **measure LLM systems, don't vibe
 > them.** ([ai-job-copilot](https://github.com/kgtceo/ai-job-copilot) ·
 > [rag-doc-qa](https://github.com/kgtceo/rag-doc-qa) ·
-> [research-agent](https://github.com/kgtceo/research-agent))
+> [research-agent](https://github.com/kgtceo/research-agent) ·
+> [llm-red-team](https://github.com/kgtceo/llm-red-team))
 
 ---
 
