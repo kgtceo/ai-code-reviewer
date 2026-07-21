@@ -15,11 +15,7 @@ The hard part of a review bot isn't generating comments — it's **precision**: 
 that floods a PR with low-value nitpicks gets muted. So this one is built to stay
 quiet unless it has something real, and its evals score exactly that.
 
-> Fourth in a portfolio built around one idea: **measure LLM systems, don't vibe
-> them.** ([ai-job-copilot](https://github.com/kgtceo/ai-job-copilot) ·
-> [rag-doc-qa](https://github.com/kgtceo/rag-doc-qa) ·
-> [research-agent](https://github.com/kgtceo/research-agent) ·
-> [llm-red-team](https://github.com/kgtceo/llm-red-team))
+> Built around one idea: **measure LLM systems, don't vibe them.**
 
 ---
 
