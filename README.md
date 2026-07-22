@@ -46,6 +46,8 @@ python evals/run_evals.py               # recall + precision + judge
 python evals/run_evals.py --no-judge    # deterministic gates only (CI-gateable)
 ```
 
+**Latest run (claude-sonnet-4-6):** recall 2/2 (both planted bugs caught — a SQL injection and a null-dereference), precision 1/1 (the clean refactor drew zero findings — no crying wolf).
+
 ## Quickstart
 
 ```bash
@@ -70,6 +72,27 @@ pytest -q
 - **Planted-bug evals** — recall/precision measured, not asserted.
 - **Works on real PRs** — fetches public PR diffs from GitHub's `.diff` endpoint (no
   token). A CI/webhook integration (post comments on a PR) is a natural next step.
+
+## Web
+
+FastAPI service + Next.js web UI.
+
+Run it locally in two terminals:
+
+```bash
+# terminal 1 — the API
+pip install -e .
+cp .env.example .env                  # add ANTHROPIC_API_KEY
+python -m uvicorn ai_code_reviewer.api:app --port 8000
+
+# terminal 2 — the UI
+cd web
+npm install
+echo "NEXT_PUBLIC_API_URL=http://localhost:8000" > .env.local
+npm run dev                           # open http://localhost:3000
+```
+
+For deployment, see [DEPLOY.md](DEPLOY.md).
 
 ## Roadmap
 - [x] Diff parser + grounded, structured review (bugs + security, not style)
