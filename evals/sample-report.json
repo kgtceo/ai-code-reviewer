@@ -1,0 +1,23 @@
+[
+  {
+    "name": "sql_injection",
+    "findings": 1,
+    "passed": true,
+    "detail": "caught at line 6 (security)",
+    "judge": null
+  },
+  {
+    "name": "none_deref",
+    "findings": 1,
+    "passed": true,
+    "detail": "caught at line 12 (bug)",
+    "judge": null
+  },
+  {
+    "name": "clean_refactor",
+    "findings": 0,
+    "passed": true,
+    "detail": "ok \u2014 stayed quiet",
+    "judge": null
+  }
+]

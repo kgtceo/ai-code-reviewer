@@ -7,6 +7,10 @@ exact lines the diff changed. (First run ~10–20s.)
 
 ![ai-code-reviewer: bug and security findings on a diff, each pinned to a changed line](docs/images/screenshot.png)
 
+**How it works** — input → pipeline → output, with the eval harness that measures it:
+
+![ai-code-reviewer — architecture and eval harness](docs/images/architecture.png)
+
 An AI code reviewer that flags **real bugs and security issues** in a diff or a public
 GitHub PR — **not** style nits. Every finding is tied to a line the diff actually
 changed, and the whole thing is measured against a **planted-bug test set**.
@@ -46,7 +50,7 @@ python evals/run_evals.py               # recall + precision + judge
 python evals/run_evals.py --no-judge    # deterministic gates only (CI-gateable)
 ```
 
-**Latest run (claude-sonnet-4-6):** recall 2/2 (both planted bugs caught — a SQL injection and a null-dereference), precision 1/1 (the clean refactor drew zero findings — no crying wolf).
+**Latest run (claude-sonnet-4-6):** recall 2/2 (both planted bugs caught — a SQL injection and a null-dereference), precision 1/1 (the clean refactor drew zero findings — no crying wolf). The actual generated report is committed at [`evals/sample-report.json`](evals/sample-report.json) — verifiable, not just asserted (`run_evals.py` writes a fresh one to `evals/reports/` each run).
 
 ## Quickstart
 
