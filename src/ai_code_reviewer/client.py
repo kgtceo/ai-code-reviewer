@@ -56,6 +56,25 @@ class LLMClient:
                 return schema.model_validate(block.input)
             except ValidationError as exc:
                 last = exc
+                # The API requires every assistant `tool_use` block to be answered by a
+                # `tool_result` block in the very next user message, so the validation
+                # error is fed back as that tool result (flagged is_error) rather than as
+                # plain text — plain text here is rejected with a 400 and the retry never runs.
                 messages.append({"role": "assistant", "content": resp.content})
-                messages.append({"role": "user", "content": f"Failed validation:\n{exc}\nRetry with valid input."})
+                messages.append(
+                    {
+                        "role": "user",
+                        "content": [
+                            {
+                                "type": "tool_result",
+                                "tool_use_id": block.id,
+                                "is_error": True,
+                                "content": (
+                                    f"The {schema.__name__} you returned failed validation:\n"
+                                    f"{exc}\nCall {tool_name} again with schema-valid input."
+                                ),
+                            }
+                        ],
+                    }
+                )
         raise StructuredCallError(f"No schema-valid {schema.__name__}: {last}")
